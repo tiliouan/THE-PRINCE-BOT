@@ -11,12 +11,15 @@ let handler = async (m, { conn }) => {
 
     let latency = (speed() - timestamp).toFixed(4)
 
+    // Assuming you have a PDF link stored in a variable named pdfLink
+    let pdfLink = 'https://example.com/sample.pdf'
+
     await conn.relayMessage(m.chat, {
       protocolMessage: {
         key: pingMsg.key,
         type: 14,
         editedMessage: {
-          conversation: `🚀Pong!...Done ${latency} ms` 
+          conversation: `Here is the PDF link: ${pdfLink} (Latency: ${latency} ms)` 
         }
       }
     }, {})
